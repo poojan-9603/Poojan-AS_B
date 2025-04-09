@@ -1,0 +1,408 @@
+@font-face {
+  font-family: 'Handlee';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Handlee'),
+       url('font/Handlee-Regular.ttf') format('truetype'); }
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'),
+  url('font/OpenSans-ExtraBold.ttf') format('truetype'); }
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'),
+       url('font/OpenSans-Regular.ttf') format('truetype'); }
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: normal;
+  src: local('FontAwesome'),
+       url('font/FontAwesome-Webfont.ttf') format('truetype'); }
+
+html { margin:0; height: 100%; }
+
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  font: 10pt Open Sans;
+  margin: 0;
+  height: 100%; }
+
+h1 { font: 24pt "Open Sans"; font-weight: 800; margin-bottom: 0; }
+
+td#leftlayout, td#rightlayout {
+  vertical-align: top;
+  min-width: 120px;
+}
+
+input[type="button"] {
+  font-family: "Open Sans";
+  background: gainsboro;
+  border: 2px solid white;
+  font-size: 17px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  margin: 1px 3px; }
+input[type="button"]:hover {
+  background: silver; }
+
+.puzzlename {
+   text-align:center;
+   font: 24pt "Open Sans";
+   font-weight: 800;
+   padding-bottom: 10px; }
+
+table.timescore {
+  margin-top: -15px;
+  border: 0;
+  border-collapse: collapse;
+  width: 450px; }
+table.timescore td {
+  font: 12pt "Open Sans";
+  font-weight: 800; }
+
+.finished {
+  display: none; }
+.hinttext {
+  display: none; }
+
+#bottomtext {
+  text-align:center;
+  min-height: 30px;
+  margin: 15px 0 0 0;
+  font: 10pt Open Sans; }
+
+#bottomtext nobr {
+  -webkit-user-select: text;
+  user-select: text; }
+
+table.numberkey {
+  border-collapse: no-collapse;
+  border-spacing: 0;
+  margin: 0 30px;
+  cursor: pointer;
+  margin-bottom: 30px;}
+td.numberkey-cell {
+  width: 32px; height: 32px;
+  text-align: center; vertical-align: middle;
+  line-height: 0;
+  overflow: hidden;
+  opacity: 0.38;
+  border-radius: 8px;
+  border: 2px solid white; }
+td.numberkey-cell.selected {
+  opacity: 1;
+  background: white;
+  border: 2px solid black; }
+div.eraser {
+  font-family: FontAwesome;
+  font-size:30px;
+  color:hotpink; }
+table.numberkey .sudoku-answer {
+  width: 32px; height: 32px;
+  font-size:30px; }
+
+table.sudoku {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+td.sudoku-border {
+  border: 1px solid #999;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  position: relative;
+}
+
+table.sudoku tr:nth-child(2n) td.sudoku-border {
+  border-bottom: 2px solid #333;
+}
+
+table.sudoku td.sudoku-border:nth-child(2n) {
+  border-right: 2px solid #333;
+}
+
+div.sudoku-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+div.sudoku-given {
+  font-family: "Open Sans";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+div.sudoku-answer {
+  font-family: "Handlee";
+  font-size: 22px;
+  color: #0066cc;
+}
+
+table.numberkeys {
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+td.numberkey-cell {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+div.numberkey {
+  font-family: "Handlee";
+  font-size: 22px;
+  color: #0066cc;
+}
+
+div.eraser {
+  font-family: "Open Sans";
+  font-weight: bold;
+  color: #cc0000;
+}
+
+td.sudoku-cell {
+  width: 46px; height: 46px;
+  text-align: center; vertical-align: middle;
+  line-height: 0;
+  border: 1px solid black; }
+
+div.sudoku-border {
+  width: 44px; height: 44px;
+  text-align: center; vertical-align: middle;
+  border: 1px solid transparent;
+  overflow: hidden; }
+
+div.sudoku-border.focus {
+  border: 1px dotted blue; }
+
+div.sudoku-answer {
+  width: 44px; height: 44px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0; margin: 0px; border: 0;
+  color: #777;
+  font: 40px Handlee, sans-serif;}
+
+div.sudoku-given {
+  width: 48px; height: 48px;
+  text-align: center; vertical-align: middle;
+  cursor: default;
+  padding: 0; margin: -3px;
+  line-height: 0;
+  font: 36px 'Open Sans';
+  font-weight: 800; }
+
+td.sudoku-border {
+  background: black; height: 1px; width: 1px; font-size: 0;
+  border: 1px solid black;}
+
+div.sudoku-work {
+  width: 44px; height: 44px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0; margin: 0; border: 0; }
+
+table.sudoku-work-table {
+  border-collapse: collapse;
+  border: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
+table.sudoku-work-table td {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  width: 15px; height: 14px;
+  text-align: center;
+  overflow: hidden;
+  vertical-align: middle; }
+
+table.sudoku-work-table div {
+  color: #111;
+  font: 12px Handlee, sans-serif;
+  width: 100%;
+  margin: 0 0; }
+
+div.sudoku-popup {
+  position: absolute;
+  height: 42px; width: 220px;
+  font: 30px 'Open Sans';
+  font-weight: 800;
+  cursor: default;
+  padding: 2px;
+  vertical-align: middle;
+  border: 3px solid black;
+  background-color: white;
+  display: none; }
+div.sudoku-popup#victory {
+  background-color: yellow; }
+div.sudoku-popup#intro {
+  width: 460px;
+  padding: 10px;
+  height: auto;
+  font-size: 14px; }
+
+td.sudoku-cell.input-error {
+  background-color: rgba(255, 0, 0, 0.3);
+  transition: background-color 0.5s;
+}
+
+td.sudoku-cell.input-correct {
+  background-color: rgba(0, 255, 0, 0.2);
+  transition: background-color 0.5s;
+}
+
+td.sudoku-cell.related-cell {
+  background-color: rgba(40, 59, 65, 0.3);
+}
+
+td.sudoku-cell.same-value {
+  background-color: rgba(144, 238, 144, 0.4);
+}
+
+div.sudoku-border.focus {
+  border: 2px solid rgb(41, 41, 56) !important;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+td.sudoku-cell.clicked-focus div.sudoku-border {
+  border: 3px solid #1890ff !important;
+  box-shadow: 0 0 8px rgba(24, 144, 255, 0.7);
+  background-color: rgba(24, 144, 255, 0.1);
+}
+
+td.numberkey-cell.selected {
+  background-color: #e6f7ff;
+  border: 2px solid #1890ff !important;
+  box-shadow: 0 0 5px rgba(24, 144, 255, 0.5);
+}
+
+.sudoku-border {
+  border: 1px solid #888;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sudoku-border.hover-highlight {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.sudoku-border.focus {
+  background-color: #e0e0ff;
+  cursor: pointer;
+}
+
+.sudoku-border.hover-highlight {
+  background-color: #f0f0f0;
+  cursor: default;
+}
+
+.sudoku-border.input-error {
+  background-color: #ffdddd;
+}
+
+.sudoku-border.input-correct {
+  background-color: #ddffdd;
+}
+
+.sudoku-border.related-cell {
+  background-color: #f8f8f8;
+}
+
+.sudoku-border.same-value {
+  background-color: #e8e8ff;
+}
+
+@keyframes blink-red {
+  0% { background-color: #ffdddd; }
+  50% { background-color: #ff9999; }
+  100% { background-color: #ffdddd; }
+}
+
+.conflict-cell {
+  animation: blink-red 0.5s infinite;
+  border: 1px solid #ff9999;
+}
+
+.input-error {
+  background-color: #ffcccc; 
+  border: 2px solid red; 
+}
+
+.input-correct {
+  background-color: #ccffcc; 
+  border: 2px solid green; 
+}
+
+.input-error {
+  background-color: #ffcccc !important;
+  animation: blink-red 0.5s 2;
+}
+
+.input-correct {
+  background-color: #ccffcc !important;
+  animation: blink-green 0.5s 2;
+}
+
+.conflict-cell {
+  background-color: #ffdddd !important;
+}
+
+td.sudoku-cell.input-error {
+  background-color: #ffcccc;
+  animation: blink-red 0.5s 2;
+}
+
+td.sudoku-cell.input-correct {
+  background-color: #ccffcc;
+  animation: blink-green 0.5s 2;
+}
+
+td.sudoku-cell.conflict-cell {
+  background-color: #ffdddd;
+  animation: blink-red 0.5s 2;
+}
+
+@keyframes blink-red {
+  0% { background-color: #ffcccc; }
+  50% { background-color: #ff9999; }
+  100% { background-color: #ffcccc; }
+}
+
+@keyframes blink-green {
+  0% { background-color: #ccffcc; }
+  50% { background-color: #99ff99; }
+  100% { background-color: #ccffcc; }
+}
+
+.sudoku-answer {
+  z-index: 2; 
+  position: relative;
+}
+
+.input-error, .input-correct {
+  animation: none !important; 
+}
+
+td.sudoku-cell {
+  position: relative; 
+}
